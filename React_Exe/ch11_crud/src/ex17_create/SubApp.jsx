@@ -19,12 +19,12 @@ function Header(props){
 function Nav(props){
   const lis = [];
   for(let i=0;i<props.topics.length;i++){
-    let t = props.topics[i];
+    let t = props.topics[i];    
     lis.push(<li key={t.id}>
               <a id={t.id} href={"/read/" + t.id}
                 onClick={event=>{
-                  event.preventDefault();   
-                  props.onChangeMode(Number(event.target.id));    
+                  event.preventDefault();  
+                  props.onChangeMode(Number(event.target.id));     
                 }}>
                 {t.title}
               </a>
@@ -49,36 +49,39 @@ function Article(props){
   )
 }
 
+function Create(){
+
+  return null;
+
+}
+
 export default function SubApp(){
 
   const [mode, setMode] = useState('WELCOME');
-  const [id, setId] = useState(null);       // nav의 어떤 항목(id)이 선택되었는지
+  const [id, setId] = useState(null);       // nav의 어떤 항목(id)이 선택 되었는지
   const topics = [
     {id:1, title:'html', body:'html is ...'},
     {id:2, title:'css', body:'css is ...'},
     {id:3, title:'javascript', body:'javascript is ...'},
   ]
-
   let content = null;
   
   if(mode === 'WELCOME'){
     content = <Article title='Welcome' body='Hello, Web'></Article>
-
   }else if(mode === 'READ'){
     let title, body = null;
-    for(let i=0;i<topics.length;i++){
-      console.log(id, typeof id);
+    for (let i = 0; i < topics.length; i++ ){
+      console.log(id, typeof id)
       // 선택된 id와 같은 항목을 찾았으면
-      if(topics[i].id === id){
+      if(topics[i].id === id) {
         title = topics[i].title;
         body = topics[i].body;
         break;
       }
     }
-
-    content = <Article title={title} body={body}></Article>
-  }else if(mode === 'CREATE'){
-    
+    content = <Article title={title} body={body} /> 
+  } else if (mode === 'CREATE'){
+    content = <Create></Create>
   }
 
     return (
@@ -88,10 +91,10 @@ export default function SubApp(){
           }} />
           <Nav topics={topics} onChangeMode={(id)=>{
             setMode('READ');
-            setId(id);      // nav의 리스트중에 어떤 항목(id)이 선택되었는지 알 수 있음
+            setId(id);        // nav의 리스트중에 어떤 항목(id)이 선택되었는지 알 수 있음
           }} />
           {content}
-          <a href='/create' onClick={event=>{
+          <a href='/create' onClick={event =>{
             event.preventDefault();
             setMode('CREATE');
           }}>Create</a>

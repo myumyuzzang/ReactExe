@@ -49,17 +49,42 @@ function Article(props){
   )
 }
 
+function Create(props){
+  
+  return (
+    <article>
+      <h2>Create</h2>
+      {/* submit버튼을 누르면, form에서 onSubmit이 호출된다. */}
+      <form onSubmit={event=>{
+        event.preventDefault();   // 기본동작 막음(페이지 reload)
+        const title = event.target.title.value;
+        const body = event.target.body.value;
+
+        // 부모영역에서 props를 통해 전달한 onCreate 함수를 호출함
+        props.onCreate(title, body);
+      }}>
+        <p><input type='text' name='title' placeholder='title'/></p>
+        <p><textarea name='body' placeholder='body'></textarea></p>
+        <p><input type='submit' value="Create"/></p>
+      </form>
+    </article>
+  );
+}
+
 export default function SubApp(){
 
   const [mode, setMode] = useState('WELCOME');
   const [id, setId] = useState(null);       // nav의 어떤 항목(id)이 선택되었는지
-  const topics = [
+  // 새로운 id발급, topics의 마지막 id가 3이므로, 새로운 id는 4부터 시작
+  const [nextId, setNextId] = useState(4);  
+  const [topics, setTopics] = useState([
     {id:1, title:'html', body:'html is ...'},
     {id:2, title:'css', body:'css is ...'},
     {id:3, title:'javascript', body:'javascript is ...'},
-  ]
+  ]);
 
   let content = null;
+  let contextControl = null;
   
   if(mode === 'WELCOME'){
     content = <Article title='Welcome' body='Hello, Web'></Article>
@@ -77,8 +102,26 @@ export default function SubApp(){
     }
 
     content = <Article title={title} body={body}></Article>
+    contextControl = <li><a href={'/update/' + id} onClick={event=>{
+      event.preventDefault();
+      // UPDATE 모드로 전환
+      setMode('UPDATE');
+    }}>Update</a></li>
+
   }else if(mode === 'CREATE'){
-    
+
+    content = <Create onCreate={(_title, _body)=>{
+      const newTopic = {id: nextId, title: _title, body: _body};
+      const newTopics = [...topics];
+      newTopics.push(newTopic);
+      setTopics(newTopics); 
+
+      setMode('READ');
+      setId(nextId);
+      setNextId(nextId+1);
+    }} />
+  }else if(mode === 'UPDATE'){
+    alert('UPDATE 모드 전환');
   }
 
     return (
@@ -91,10 +134,15 @@ export default function SubApp(){
             setId(id);      // nav의 리스트중에 어떤 항목(id)이 선택되었는지 알 수 있음
           }} />
           {content}
-          <a href='/create' onClick={event=>{
-            event.preventDefault();
-            setMode('CREATE');
-          }}>Create</a>
+          <ul>
+            <li>
+              <a href='/create' onClick={event=>{
+                event.preventDefault();
+                setMode('CREATE');
+              }}>Create</a>
+            </li>
+            {contextControl}
+          </ul>
         </div>
       );
 }
