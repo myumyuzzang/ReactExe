@@ -22,14 +22,14 @@ const blockItems = [
   {
     label: "2",
     padding: "1rem",
-    backgroundImage: `url("https://media.istockphoto.com/id/586714878/ko/%EC%82%AC%EC%A7%84/%EA%B7%80%EC%97%AC%EC%9A%B4-%EC%95%84%EA%B8%B0-%EC%83%88%EB%81%BC-%EB%8F%BC%EC%A7%80.jpg?s=1024x1024&w=is&k=20&c=CDWOMEY5oLe5sFBUgJ2ykGVkIYQVJZ2BfLLZcfwWiI8=")`,
+    backgroundImage: `url("https://mblogthumb-phinf.pstatic.net/MjAxODA2MjNfMTEy/MDAxNTI5NzMxMTU4MTM3.28zEZBHsO9RhxASP2dUkXRPEBqb7V-SLm7qMZ26-tugg.Nz8144FCGE5Ll1BC1yPwNG47-bGPHjcCRzOY-40I8aMg.PNG.guswh2678/%25EC%258A%25AC%25EB%259D%25BC%25EC%259D%25B4%25EB%2593%259C6.PNG?type=w800")`,
   },
   {
     label: "3",
     padding: "1rem",
     backgroundImage: `url("https://blog.kakaocdn.net/dn/T5llE/btrr03jHwO8/LYZz4fzSmJcqOEQxJTjTbk/img.jpg")`,
   },
-    {
+  {
     label: "1",
     padding: "1rem",
     backgroundImage: `url("https://blog.kakaocdn.net/dn/bhWZTq/btrr1MBYWuc/Ct0TpC5iAi8pOV6CkkFZeK/img.jpg")`,
@@ -37,14 +37,14 @@ const blockItems = [
   {
     label: "2",
     padding: "1rem",
-    backgroundImage: `url("https://media.istockphoto.com/id/586714878/ko/%EC%82%AC%EC%A7%84/%EA%B7%80%EC%97%AC%EC%9A%B4-%EC%95%84%EA%B8%B0-%EC%83%88%EB%81%BC-%EB%8F%BC%EC%A7%80.jpg?s=1024x1024&w=is&k=20&c=CDWOMEY5oLe5sFBUgJ2ykGVkIYQVJZ2BfLLZcfwWiI8=")`,
+    backgroundImage: `url("https://mblogthumb-phinf.pstatic.net/MjAxODA2MjNfMTEy/MDAxNTI5NzMxMTU4MTM3.28zEZBHsO9RhxASP2dUkXRPEBqb7V-SLm7qMZ26-tugg.Nz8144FCGE5Ll1BC1yPwNG47-bGPHjcCRzOY-40I8aMg.PNG.guswh2678/%25EC%258A%25AC%25EB%259D%25BC%25EC%259D%25B4%25EB%2593%259C6.PNG?type=w800")`,
   },
   {
     label: "3",
     padding: "1rem",
     backgroundImage: `url("https://blog.kakaocdn.net/dn/T5llE/btrr03jHwO8/LYZz4fzSmJcqOEQxJTjTbk/img.jpg")`,
   },
-    {
+  {
     label: "1",
     padding: "1rem",
     backgroundImage: `url("https://blog.kakaocdn.net/dn/bhWZTq/btrr1MBYWuc/Ct0TpC5iAi8pOV6CkkFZeK/img.jpg")`,
@@ -52,22 +52,7 @@ const blockItems = [
   {
     label: "2",
     padding: "1rem",
-    backgroundImage: `url("https://media.istockphoto.com/id/586714878/ko/%EC%82%AC%EC%A7%84/%EA%B7%80%EC%97%AC%EC%9A%B4-%EC%95%84%EA%B8%B0-%EC%83%88%EB%81%BC-%EB%8F%BC%EC%A7%80.jpg?s=1024x1024&w=is&k=20&c=CDWOMEY5oLe5sFBUgJ2ykGVkIYQVJZ2BfLLZcfwWiI8=")`,
-  },
-  {
-    label: "3",
-    padding: "1rem",
-    backgroundImage: `url("https://blog.kakaocdn.net/dn/T5llE/btrr03jHwO8/LYZz4fzSmJcqOEQxJTjTbk/img.jpg")`,
-  },
-    {
-    label: "1",
-    padding: "1rem",
-    backgroundImage: `url("https://blog.kakaocdn.net/dn/bhWZTq/btrr1MBYWuc/Ct0TpC5iAi8pOV6CkkFZeK/img.jpg")`,
-  },
-  {
-    label: "2",
-    padding: "1rem",
-    backgroundImage: `url("https://media.istockphoto.com/id/586714878/ko/%EC%82%AC%EC%A7%84/%EA%B7%80%EC%97%AC%EC%9A%B4-%EC%95%84%EA%B8%B0-%EC%83%88%EB%81%BC-%EB%8F%BC%EC%A7%80.jpg?s=1024x1024&w=is&k=20&c=CDWOMEY5oLe5sFBUgJ2ykGVkIYQVJZ2BfLLZcfwWiI8=")`,
+    backgroundImage: `url("https://mblogthumb-phinf.pstatic.net/MjAxODA2MjNfMTEy/MDAxNTI5NzMxMTU4MTM3.28zEZBHsO9RhxASP2dUkXRPEBqb7V-SLm7qMZ26-tugg.Nz8144FCGE5Ll1BC1yPwNG47-bGPHjcCRzOY-40I8aMg.PNG.guswh2678/%25EC%258A%25AC%25EB%259D%25BC%25EC%259D%25B4%25EB%2593%259C6.PNG?type=w800")`,
   },
   {
     label: "3",
