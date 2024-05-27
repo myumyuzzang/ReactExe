@@ -1,0 +1,15 @@
+import FancyBorder from "../ex01_comtainment/FancyBorder";
+
+// 일반적인 Dialog
+export default function Dialog(props) {
+    return (
+        <FancyBorder color="blue">
+            <h1 className="Dialog-title">
+                {props.title}
+            </h1>
+            <h1 className="Dialog-message">
+                {props.message}
+            </h1>
+        </FancyBorder>
+    )
+}
