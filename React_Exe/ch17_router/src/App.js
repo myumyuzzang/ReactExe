@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+// import SubApp from "./ex09_dynamic_nested/SubApp";
+// import SubApp from "./ex02_sub_app/SubApp";
+// import SubApp from "./ex03_routes/SubApp";
+// import SubApp from "./ex04_no_route/SubApp";
+// import SubApp from "./ex05_link/SubApp";
+// import SubApp from "./ex06_hash_router/SubApp";
+// import SubApp from "./ex07_nav_link/SubApp";
+// import SubApp from "./ex08_nested_routing/SubApp";
+import SubApp from "./ex09_dynamic_nested/SubApp"
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <SubApp />;
 }
 
 export default App;

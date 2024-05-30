@@ -1,0 +1,10 @@
+#container,
+#container div {
+    border: 5px solid rgb(255, 214, 228);
+    margin: 10px;
+}
+
+#gird{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
