@@ -2,6 +2,7 @@ package org.mind.carddatabase.config;
 
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.mind.carddatabase.component.AuthEntryPoint;
 import org.mind.carddatabase.filter.AuthenticationFilter;
 import org.mind.carddatabase.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -51,6 +53,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
     private final AuthenticationFilter authenticationFilter;
+    private final AuthEntryPoint authEntryPoint;
+
 
     // 사용자인증을 위한 userDetailsService 설정/패스워드 암호화 알고리즘 설정
     // 암호를 DB에 저장하기 전에 BCrypt 암호화 처리
@@ -73,29 +77,34 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .cors().and()
                 .authorizeRequests().anyRequest().permitAll();
-
+        /*
         // csrf보안은 세션을 활용하는데 Rest서버는 세션을 사용하지 않으므로 disable
-//        http.csrf().disable()
-//                // CORS는 설정을 사용한다.
-//                .cors().and()
-//                .sessionManagement()
-//                // Rest 서버는 세션 상태를 유지하지 않으므로 STATELESS
-//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-//                .authorizeRequests()
-//                // /login엔드포인트에 대한 POST요청은 접근을 허용함.
-//                .antMatchers(HttpMethod.POST, "/login").permitAll()
-//                // 다른 요청은 인증 과정을 거쳐야 접근할 수 있다.
-//                .anyRequest().authenticated().and()
-//                // /login을 제외한 나머지 모든 요청은 필터를 통과해야 정상 응답을 받을 수 있다.
-//                .addFilterBefore(authenticationFilter,
-//                        UsernamePasswordAuthenticationToken.class);
-//    }
+        http.csrf().disable()
+                // CORS는 설정을 사용한다.
+                .cors().and()
+                .sessionManagement()
+                // Rest 서버는 세션 상태를 유지하지 않으므로 STATELESS
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+                .authorizeRequests()
+                // /login엔드포인트에 대한 POST요청은 접근을 허용함.
+                .antMatchers(HttpMethod.POST, "/login").permitAll()
+                // 다른 요청은 인증 과정을 거쳐야 접근할 수 있다.
+                .anyRequest().authenticated().and()
+                // 잘못된 인증정보 요청 시, 오류 응답 처리를 authEntryPoint가 한다.
+                .exceptionHandling()
+                .authenticationEntryPoint(authEntryPoint).and()
+                // /login을 제외한 나머지 모든 요청은 필터를 통과해야 정상 응답을 받을 수 있다.
+                .addFilterBefore(authenticationFilter,
+                        UsernamePasswordAuthenticationFilter.class);
+         */
+    }
 
-    // CorsConfigurationSource = CORS 자세한 설정 부분
+    // CORS 자세한 설정 부분
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
+        //config.setAllowedOrigins(Arrays.asList("http://localhost:3000", "https://www.bitcamp.co.kr"));
         config.setAllowedOrigins(Arrays.asList("*"));
         config.setAllowedMethods(Arrays.asList("*"));
         config.setAllowedHeaders(Arrays.asList("*"));
