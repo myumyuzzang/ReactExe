@@ -4,8 +4,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.mind.carddatabase.domain.Car;
 import org.mind.carddatabase.domain.Owner;
+import org.mind.carddatabase.domain.User;
 import org.mind.carddatabase.repository.CarRepository;
 import org.mind.carddatabase.repository.OwnerRepository;
+import org.mind.carddatabase.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,6 +21,7 @@ public class CardDatabaseApplication implements CommandLineRunner {
 
 	private final OwnerRepository ownerRepository;
 	private final CarRepository carRepository;
+	private final UserRepository userRepository;
 
 	public static void main(String[] args) {
 
@@ -43,6 +46,7 @@ public class CardDatabaseApplication implements CommandLineRunner {
 		Car car1 = Car.builder()
 				.brand("Ford")
 				.model("Mustang")
+				.color("white")
 				.registerNumber("AAA-111")
 				.year(2024)
 				.price(6400)
@@ -51,6 +55,7 @@ public class CardDatabaseApplication implements CommandLineRunner {
 		Car car2 = Car.builder()
 				.brand("Hyndai")
 				.model("Genesis")
+				.color("black")
 				.registerNumber("HHH-111")
 				.year(2024)
 				.price(8500)
@@ -59,6 +64,7 @@ public class CardDatabaseApplication implements CommandLineRunner {
 		Car car3 = Car.builder()
 				.brand("기아")
 				.model("쏘렌토")
+				.color("grey")
 				.registerNumber("SSS-111")
 				.year(2024)
 				.price(4300)
@@ -73,5 +79,20 @@ public class CardDatabaseApplication implements CommandLineRunner {
 		for(Car car : carRepository.findAll()) {
 			log.info(car.toString());
 		}
+
+		// 	username =
+		User user1 = User.builder()
+						.username("user")
+						.password("$2y$10$t6Hc6akZ1GVmJ0hYMhRicubknJOkcP.7z5gQopAm3xY0n07jl8cnq")
+						.role("USER")
+						.build();
+
+		User user2 = User.builder()
+				.username("admin")
+				.password("$2y$10$qrYOZ4xgym/xdi1TB4vGPeSnr.nYOfoCOT1WxQTXe.NxNqf8vPZJq")
+				.role("USER")
+				.build();
+
+		userRepository.save(user1);
 	}
 }
