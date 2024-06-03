@@ -94,6 +94,8 @@ import java.util.List;
  GET - http://localhost:12000/api/cars/search/findByColor{?color}
  ~~~~~~~~> http://localhost:12000/api/cars/search/findByColor?color="white"
 
+9. ID가 3인 자동차 삭제
+DELETE - http://localhost:12000/api/cars/3
 
 
 */

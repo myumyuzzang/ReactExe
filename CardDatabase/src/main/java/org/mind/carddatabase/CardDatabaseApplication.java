@@ -81,18 +81,18 @@ public class CardDatabaseApplication implements CommandLineRunner {
 		}
 
 		// 	username =
-		User user1 = User.builder()
-						.username("user")
-						.password("$2y$10$t6Hc6akZ1GVmJ0hYMhRicubknJOkcP.7z5gQopAm3xY0n07jl8cnq")
-						.role("USER")
-						.build();
-
-		User user2 = User.builder()
-				.username("admin")
-				.password("$2y$10$qrYOZ4xgym/xdi1TB4vGPeSnr.nYOfoCOT1WxQTXe.NxNqf8vPZJq")
-				.role("USER")
-				.build();
-
-		userRepository.save(user1);
+//		User user1 = User.builder()
+//						.username("user")
+//						.password("$2y$10$t6Hc6akZ1GVmJ0hYMhRicubknJOkcP.7z5gQopAm3xY0n07jl8cnq")
+//						.role("USER")
+//						.build();
+//
+//		User user2 = User.builder()
+//				.username("admin")
+//				.password("$2y$10$qrYOZ4xgym/xdi1TB4vGPeSnr.nYOfoCOT1WxQTXe.NxNqf8vPZJq")
+//				.role("USER")
+//				.build();
+//
+//		userRepository.save(user1);
 	}
 }

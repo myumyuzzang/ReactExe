@@ -1,10 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
-// import MainApp from './ex01_main_app'
-import MainApp from './ex02_car_list/main_app'
+import logo from "./logo.svg";
+import "./App.css";
+import MainApp from "./ex05_delete_car/MainApp";
 
 function App() {
-  return <MainApp></MainApp>
+  return <MainApp />;
 }
 
 export default App;
