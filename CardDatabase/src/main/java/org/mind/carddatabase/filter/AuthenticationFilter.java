@@ -34,7 +34,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
             Authentication authentication =
                     new UsernamePasswordAuthenticationToken(user, null,
                             java.util.Collections.emptyList());
-
+            
             // 시큐리티 인증저장소에 인증 정보 저장
             SecurityContextHolder.getContext().setAuthentication(authentication);;
         }

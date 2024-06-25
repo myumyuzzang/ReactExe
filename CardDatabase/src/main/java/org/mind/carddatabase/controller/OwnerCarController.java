@@ -23,7 +23,7 @@ public class OwnerCarController {
     }
 
     @RequestMapping("/cars")
-    public List<Car> getCars() {
+    public List<Car> getAllCars() {
         return carRepository.findAll();
     }
 }

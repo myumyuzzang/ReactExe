@@ -27,7 +27,7 @@ public class JwtService {
 
         return token;
     }
-
+    
     // 클라이언트가 보내온 요청 헤더에서, 토큰을 확인하고 사용자 이름으로 전환함
     public String getAuthUser(HttpServletRequest request){
 

@@ -1,6 +1,5 @@
 package org.mind.carddatabase.domain;
 
-
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,11 +16,11 @@ public class User {
     @Column(nullable = false, updatable = false)
     private Long id;
 
-    @Column(nullable = false,unique = true)
-    protected String username;
+    @Column(nullable = false, unique = true)
+    private String username;
 
     @Column(nullable = false)
-    protected String password;
+    private String password;
 
     @Column(nullable = false)
     private String role;

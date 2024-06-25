@@ -1,7 +1,6 @@
 package org.mind.carddatabase.domain;
 
 import lombok.*;
-import lombok.extern.jbosslog.JBossLog;
 
 import javax.persistence.*;
 
@@ -18,15 +17,15 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private  String brand;
-    private  String model;
-    private  String color;
-    private  String registerNumber;
+    private String brand;
+    private String model;
+    private String color;
+    private String registerNumber;
 
     private int year;
     private int price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="ownerid")
     private Owner owner;
 }
